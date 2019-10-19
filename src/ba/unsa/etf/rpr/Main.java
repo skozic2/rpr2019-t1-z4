@@ -63,11 +63,11 @@ public class Main {
                 System.out.println("Dodavanje artikla u korpu\nArtikli u marketu su: ");
                 ispisArtikala(supermarket.getArtikli());
                 System.out.println("Unesite kod artikla (unesite malo slovo \"c\" za odustajanje): ");
-                String kod = "";
+                String kod = scanner.nextLine();
                 kod = scanner.nextLine();
                 if(!kod.equals("c")){
                     Artikl a = supermarket.izbaciArtiklSaKodom(kod);
-                    if(a != null){            //?????
+                    if(a != null){
                         if(korpa.dodajArtikl(a)) System.out.println("Artikl dodan u korpu.");
                         else {
                             supermarket.dodajArtikl(a);

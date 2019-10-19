@@ -1,25 +1,34 @@
 package ba.unsa.etf.rpr;
 
 public class Supermarket {
-    Artikl[] art=new Artikl[1000];
-    int i=0;
-    void dodajArtikl(Artikl ar) {
+    private Artikl[] art=null;
+    private static int i=0;
+    Supermarket(){
+        art=new Artikl[1000];
+    }
+    boolean dodajArtikl(Artikl ar) {
         if (i < 1000) {
-            art[i] = ar;
+            this.art[i] = new Artikl(ar.getNaziv(), ar.getCijena(), ar.getKod());
             i = i + 1;
+            return true;
         }
+        return false;
     }
     Artikl izbaciArtiklSaKodom(String kod){
         int n=0;
+        Artikl pom=null;
         do{
-            if((art[n].getKod()).equals(kod)){
-                art[n]=null;
+            if((this.art[n].getKod()).equals(kod)){
+                pom=this.art[n];
+                for(int f=n; f<i-1; f++){
+                    this.art[f]=this.art[f+1];
+                }
                 i=i-1;
-                break;
+                return pom;
             }
                 n++;
-        }while(true);
-        return art[n]; //sta vraca??
+        }while(n<i);
+        return pom;
     }
-    Artikl getArtikli(){ return art[0];}
+    Artikl[] getArtikli(){ return this.art;}
 }

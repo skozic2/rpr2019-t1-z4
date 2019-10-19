@@ -9,8 +9,8 @@ public class Artikl {
         cijena=cij;
         kod=k;
     }
-    String getKod(){ return kod; }
-    int getCijena(){ return cijena; }
-    String getNaziv(){ return naziv; }
+    String getKod(){ return this.kod; }
+    int getCijena(){ return this.cijena; }
+    String getNaziv(){ return this.naziv; }
 
     }
