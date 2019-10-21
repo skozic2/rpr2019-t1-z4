@@ -15,7 +15,7 @@ public class Supermarket {
         return false;
     }
     Artikl izbaciArtiklSaKodom(String kod){
-        int n=0;
+        int n=1;
         Artikl pom=null;
         do{
             if((this.art[n].getKod()).equals(kod)){
@@ -27,8 +27,12 @@ public class Supermarket {
                 return pom;
             }
                 n++;
-        }while(n<i);
+        }while(n<=i);
         return pom;
     }
     Artikl[] getArtikli(){ return this.art;}
+
+    public static int getI() {
+        return i;
+    }
 }
