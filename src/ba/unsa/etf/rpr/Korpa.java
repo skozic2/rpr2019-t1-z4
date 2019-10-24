@@ -36,4 +36,7 @@ public class Korpa {
         for(int n=0; n<el; n++) sum=sum+art[n].getCijena();
         return sum;
     }
+
+    public int getI() { return el;
+    }
 }
